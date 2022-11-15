@@ -1,0 +1,36 @@
+.span {
+    border: 1px solid red;
+}
+
+.general-filter {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+
+}
+.filter-btns {
+    display: flex;
+    gap: .7rem;
+}
+
+.cat-btn {
+    border: none;
+    /* border: 2px solid #000; */
+    border-radius: 20px;
+    background-color: #fff;
+    padding: .6rem 1.6rem;
+    box-shadow: rgba(193, 193, 193, 0.4) 0px 5px 20px;
+    color: #000;
+    font-size: .8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .4s;
+    
+}
+
+.cat-btn:hover {
+   box-shadow: rgba(193, 193, 193, 0.7) 0px 5px 20px;
+    transform: translate(0, -5px);
+      /* box-shadow: rgba(193, 250, 193, 0.4) 0px 5px 20px; */
+}

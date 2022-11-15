@@ -1,0 +1,20 @@
+/* .singlemovie-img {
+    width: 100%;
+} */
+
+.singlemovie-container {
+    display: flex;
+}
+
+.singlemovie-poster {
+    height: 40vh;
+    max-height: 100%;
+}
+
+.singlemovie-title{
+    font-size: 3rem;
+}
+
+.single-movie-info-container {
+    margin-left: 3rem;
+}
