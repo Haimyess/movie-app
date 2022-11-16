@@ -19,6 +19,8 @@
     font-weight: 600;
 }
 
+
+
 .movie-nav-links {
     text-decoration: none;
     color: #000;
@@ -67,3 +69,25 @@
 
 }
 
+
+/* ----------------------------------------- */
+/* ------------------DARK MODE-------------- */
+/* ----------------------------------------- */
+
+#darkMode .logo{
+    color: #e8eaed;
+}
+
+#darkMode .active {
+    color:#e8eaed;
+    font-weight: 700;
+    background-color: #3c4043 ;
+}
+
+#darkMode .active:hover {
+    background-color: #3c4043;
+}
+
+#darkMode .movie-nav-links {
+    color:#e8eaed;
+}

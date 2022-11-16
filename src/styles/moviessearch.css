@@ -33,3 +33,13 @@
     display: flex;
     justify-content: flex-end;
 }
+
+
+/* -------------------------- */
+/* -----------DARK MODE------- */
+/* -------------------------- */
+
+#darkMode .search-input {
+    background-color: #3c4043 ;
+    color: #e8eaed;
+}

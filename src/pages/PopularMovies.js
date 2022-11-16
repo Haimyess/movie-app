@@ -1,8 +1,9 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
+import { ThemeContext } from "../contexts/DarkModeContext";
 import "../styles/popularmovies.css";
 
 // components
@@ -10,6 +11,8 @@ import Filter from "../components/Filter";
 import MoviesList from "../components/MoviesList";
 
 function PopularMovies() {
+  const [themeMode] = useContext(ThemeContext);
+
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [catBtn, setCatBtn] = useState([]);
@@ -39,7 +42,7 @@ function PopularMovies() {
   }, []);
 
   return (
-    <main>
+    <main id={themeMode}>
       <Filter
         genre={genre}
         setGenre={setGenre}

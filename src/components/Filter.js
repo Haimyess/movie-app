@@ -1,12 +1,15 @@
 /** @format */
 
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Search from "./Search";
 
 import "../styles/filter.css";
-import { useEffect } from "react";
+
+import { ThemeContext } from "../contexts/DarkModeContext";
 
 function Filter({ movies, setFilteredMovies, genre, setGenre }) {
+  const [themeMode] = useContext(ThemeContext);
+
   useEffect(() => {
     if (genre === 0) {
       setFilteredMovies(movies);
@@ -29,7 +32,7 @@ function Filter({ movies, setFilteredMovies, genre, setGenre }) {
           );
         })} */}
 
-        <button className='cat-btn' onClick={() => setGenre(0)}>
+        <button className='cat-btn' id={themeMode} onClick={() => setGenre(0)}>
           All
         </button>
 

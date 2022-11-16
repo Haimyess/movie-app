@@ -4,6 +4,9 @@
     margin: 0;
 }
 
+/* main {
+    border: 1px solid green;
+} */
 
 .movies {
     width: 100%;
@@ -89,26 +92,26 @@
 
 .movie-info {
 
-    width: auto; 
-    padding: 1rem;
+    /* width: auto;  */
+    padding: 0 .2rem;
     margin:0;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    height: auto;
+    height: 4rem; /* Check this one */
     position: relative;
     z-index: 1;
  
 } 
 
-.movie-title {
-     width: -moz-fit-content;
-  width: fit-content;
-  font-size: 1vw;
-  word-wrap: break-word;
+/* .movie-title { */
+     /* width: -moz-fit-content; */
+  /* width: fit-content; */
+  /* font-size: 1vw; */
+  /* word-wrap: break-word; */
     /* width: 100%; */
    
-}
+/* } */
 
 .movie-link {
     text-decoration: none;
@@ -116,3 +119,12 @@
 
 }
 
+/* ------------------------------------ */
+/* --------------DARK MODE ----------- */
+/* ------------------------------------ */
+
+#darkMode .cat-btn {
+    background-color: #3c4043;
+    color: #e8eaed;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}

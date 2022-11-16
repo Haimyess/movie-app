@@ -1,18 +1,22 @@
 /** @format */
 
-import React from "react";
+import React, { useContext } from "react";
 
 import "../styles/moviessearch.css";
 
-import SearchIcon from "@mui/icons-material/Search";
+import { ThemeContext } from "../contexts/DarkModeContext";
+
+// import SearchIcon from "@mui/icons-material/Search";
 
 function Search() {
+  const [themeMode] = useContext(ThemeContext);
   return (
     <div className='movies-search'>
       {/* <SearchIcon /> */}
 
       <form className='search-background-form'>
         <input
+          id={themeMode}
           className='search-input'
           type='search'
           placeholder='Search movies...'
