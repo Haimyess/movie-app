@@ -40,11 +40,17 @@ function MovieCard({ movie }) {
               name='checkedH'
             /> */}
           </div>
-          <div className='rating-wrapper'>
-            <span className='rating-container'>
-              <h2 className='rating'>{movie.vote_average}</h2>
-            </span>
-          </div>
+          {movie.vote_average === 0 ? (
+            ""
+          ) : (
+            <div className='rating-wrapper'>
+              <span className='rating-container'>
+                <h2 className='rating'>
+                  {Number(movie.vote_average).toFixed(1)}
+                </h2>
+              </span>
+            </div>
+          )}
         </div>
       </Link>
       {/* </Link> */}

@@ -7,10 +7,13 @@ export const LikeContext = createContext();
 export const LikeProvider = ({ children }) => {
   // array of likes
 
-  const fromLocal = JSON.parse(localStorage.getItem("likes") || "[]");
-  const [likes, setLikes] = useState(fromLocal);
+  const fromLocalLikes = JSON.parse(localStorage.getItem("likes") || "[]");
+  const [likes, setLikes] = useState(fromLocalLikes);
 
-  const [isLike, setIsLike] = useState(false);
+  const fromLocalCheckedHeart = JSON.parse(
+    localStorage.getItem("checkedHeart") || "false"
+  );
+  const [isLike, setIsLike] = useState(fromLocalCheckedHeart);
 
   const handleLike = (clickedMovie) => {
     // e.preventPropagation();
@@ -33,7 +36,9 @@ export const LikeProvider = ({ children }) => {
 
   useEffect(() => {
     localStorage.setItem("likes", JSON.stringify(likes));
-  }, [likes]);
+
+    localStorage.setItem("checkedHeart", JSON.stringify(isLike));
+  }, [likes, isLike]);
 
   return (
     <LikeContext.Provider

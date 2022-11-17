@@ -23,7 +23,7 @@ function MoviePage() {
 
   const { likes, setLikes, isLike, setIsLike, handleLike } =
     useContext(LikeContext);
-  const [themeMode] = useContext(ThemeContext);
+  const { themeMode } = useContext(ThemeContext);
 
   const params = useParams();
 
@@ -89,7 +89,7 @@ function MoviePage() {
                           // style={{ color: isLike ? "#e8eaed" : "#000000d7" }}
                           icon={<FavoriteBorder />}
                           checkedIcon={<Favorite />}
-                          name='checkedH'
+                          checked={isLike}
                         />
                       }
                       // label='Instagram Like Button'
