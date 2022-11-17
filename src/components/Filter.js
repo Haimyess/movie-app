@@ -8,7 +8,7 @@ import "../styles/filter.css";
 import { ThemeContext } from "../contexts/DarkModeContext";
 
 function Filter({ movies, setFilteredMovies, genre, setGenre }) {
-  const [themeMode] = useContext(ThemeContext);
+  const { themeMode } = useContext(ThemeContext);
 
   useEffect(() => {
     if (genre === 0) {
@@ -57,7 +57,7 @@ function Filter({ movies, setFilteredMovies, genre, setGenre }) {
         </button>
       </div>
 
-      <Search />
+      <Search movies={movies} setFilteredMovies={setFilteredMovies} />
     </div>
   );
 }

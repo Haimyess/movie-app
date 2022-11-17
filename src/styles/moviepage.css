@@ -6,8 +6,12 @@
     display: flex;
 }
 
+.single-movie-wrapper {
+    height: 100vh;
+
+}
 .singlemovie-poster {
-    height: 40vh;
+    height: 50vh;
     max-height: 100%;
 }
 
@@ -17,4 +21,35 @@
 
 .single-movie-info-container {
     margin-left: 3rem;
+}
+
+.about-movie {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: .5rem 0 .7rem 0;
+}
+
+.single-movie-info {
+    margin-top: 1rem;
+}
+
+/* .movie-genre {
+
+} */
+
+.movie-bold-text {
+    font-weight: 700;
+}
+
+.movie-tag {
+    font-size: 1.5rem;
+    /* text-justify: newspaper; */
+}
+
+/* ------------------------------- */
+/* -----------DARK MODE---------- */
+/* ------------------------------- */
+
+#darkMode .fav-icon {
+    color: #e8eaed;
 }

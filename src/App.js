@@ -11,7 +11,7 @@ import MoviePage from "./pages/MoviePage";
 import { ThemeContext } from "../src/contexts/DarkModeContext";
 
 function App() {
-  const [themeMode, setThemeMode] = useContext(ThemeContext);
+  const { themeMode, setThemeMode } = useContext(ThemeContext);
 
   // console.log(themeMode);
   return (

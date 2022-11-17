@@ -8,6 +8,10 @@
     border: 1px solid green;
 } */
 
+.popular-container {
+    height: 100%;
+}
+
 .movies {
     width: 100%;
     display: flex;
@@ -25,17 +29,15 @@
 .movie-card {
    width: 100%;
     background-clip: initial;
-    /* width: 250px; */
     border-radius: 10px;
     background-color: rgb(255, 255, 255);
     outline-color: transparent;
     outline-style: solid;
     outline-width: 1px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 10px, rgba(0, 0, 0, 0.03) 0px 0px 2px;
-    /* height: 300px; */
-    height: auto;
-    /* height: 30vh; */
+    height: 330px;
     position: relative;
+    z-index: 1;
     transition: .3s ease-in-out;
     
 }
@@ -56,7 +58,7 @@
 
      background-color: rgb(109, 241, 20);
     width: 2rem;
-    height: 2rem;
+    /* height: 2rem; */
     border-radius: 80%;
 
 }
@@ -83,7 +85,7 @@
     object-fit: cover;
     object-position: center;
     /* max-height: 300px; */
-    height: 250px;
+    height: 300px;
     max-height: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -98,9 +100,11 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    height: 4rem; /* Check this one */
+    height:  2rem;  /* Check this one */
     position: relative;
-    z-index: 1;
+    border-bottom-left-radius: 10px ;
+    border-bottom-right-radius:10px ;
+    z-index: 2;
  
 } 
 
@@ -113,10 +117,21 @@
    
 /* } */
 
+.movie-title {
+    /* Show the dots after the title, so it wont overflow */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .movie-link {
     text-decoration: none;
     color: inherit;
 
+}
+
+.movie-img-container {
+    height: 300px;
 }
 
 /* ------------------------------------ */
@@ -127,4 +142,14 @@
     background-color: #3c4043;
     color: #e8eaed;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+#darkMode .movie-info, .movie-img {
+    background-color:#3c4043 ;
+    color: #e8eaed;
+}
+
+#darkMode .movie-card {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
 }

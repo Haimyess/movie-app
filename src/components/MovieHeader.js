@@ -20,10 +20,12 @@ import Switch from "@mui/material/Switch";
 import { ThemeContext } from "../contexts/DarkModeContext";
 
 function MovieHeader() {
-  const [themeMode, setThemeMode] = useContext(ThemeContext);
+  const { themeMode, setThemeMode, setThemeChecked, themeChecked } =
+    useContext(ThemeContext);
 
   const handleTheme = () => {
-    setThemeMode((curr) => (curr === "lightMode" ? "darkMode" : "lightMode"));
+    setThemeMode((curr) => (curr === "darkMode" ? "lightMode" : "darkMode"));
+    setThemeChecked((prev) => !prev);
   };
 
   return (
@@ -52,7 +54,7 @@ function MovieHeader() {
         <LightModeIcon
           style={{ color: themeMode === "lightMode" ? "black" : "#e8eaed" }}
         />
-        <Switch onChange={handleTheme} />
+        <Switch onChange={handleTheme} checked={themeChecked} />
         <NightlightIcon
           style={{ color: themeMode === "lightMode" ? "black" : "#e8eaed" }}
         />

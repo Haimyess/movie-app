@@ -12,12 +12,32 @@ export const LikeProvider = ({ children }) => {
 
   const [isLike, setIsLike] = useState(false);
 
+  const handleLike = (clickedMovie) => {
+    // e.preventPropagation();
+    const exist = likes.find((movie) => {
+      return movie.id === clickedMovie.id;
+    });
+
+    if (!exist) {
+      const updatedLikes = [...likes, clickedMovie];
+      setLikes(updatedLikes);
+      setIsLike(true);
+    } else {
+      const deleteFromLikes = likes.filter(
+        (like) => like.id !== clickedMovie.id
+      );
+      setLikes([...deleteFromLikes]);
+      setIsLike(false);
+    }
+  };
+
   useEffect(() => {
     localStorage.setItem("likes", JSON.stringify(likes));
   }, [likes]);
 
   return (
-    <LikeContext.Provider value={{ likes, setLikes, isLike, setIsLike }}>
+    <LikeContext.Provider
+      value={{ likes, setLikes, isLike, setIsLike, handleLike }}>
       {children}
     </LikeContext.Provider>
   );

@@ -3,11 +3,14 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 
-import IconButton from "@mui/material/IconButton";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import Checkbox from "@mui/material/Checkbox";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
+import { FormControlLabel } from "@mui/material";
 
+// Contexts
 import { LikeContext } from "../contexts/LikeContext";
+import { ThemeContext } from "../contexts/DarkModeContext";
 
 import { useParams } from "react-router-dom";
 
@@ -18,9 +21,9 @@ function MoviePage() {
   // const [movieImages, setMovieImages] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const { likes, setLikes, isLike, setIsLike } = useContext(LikeContext);
-  console.log([movie]);
-  console.log(likes);
+  const { likes, setLikes, isLike, setIsLike, handleLike } =
+    useContext(LikeContext);
+  const [themeMode] = useContext(ThemeContext);
 
   const params = useParams();
 
@@ -40,38 +43,13 @@ function MoviePage() {
     getMovie();
   }, []);
 
-  const handleLike = (clickedMovie) => {
-    const exist = likes.find((movie) => {
-      return movie.id === clickedMovie.id;
-    });
-
-    if (!exist) {
-      const updatedLikes = [...likes, clickedMovie];
-      setLikes(updatedLikes);
-    } else {
-      const deleteFromLikes = likes.filter(
-        (like) => like.id !== clickedMovie.id
-      );
-      setLikes([...deleteFromLikes]);
-    }
-
-    // if (!isLike) {
-    //   if (!exist) {
-    //     const updatedLikes = [...likes, clickedMovie];
-    //     setLikes(updatedLikes);
-    //   }
-    // } else {
-    //   const deleteMovie = likes.filter((mov) => mov.id !== clickedMovie);
-    //   setLikes(deleteMovie);
-    // }
-  };
-
   return (
-    <main>
+    <main className='single-movie-wrapper'>
       {loading ? (
         <p>loading</p>
       ) : (
         movie.map((singleMovie) => {
+          console.log(singleMovie);
           return (
             <div key={singleMovie.id}>
               <section className='singlemovie-container'>
@@ -85,10 +63,12 @@ function MoviePage() {
 
                 <div className='single-movie-info-container'>
                   <h1 className='singlemovie-title'>{singleMovie.title}</h1>
-                  <p>{singleMovie.tagline}</p>
+                  <p className='movie-tag'>{singleMovie.tagline}</p>
                   <span>
                     {singleMovie.genres.map((genre, i) => (
-                      <span key={i}> {genre.name} </span>
+                      <span className='movie-genre' key={i}>
+                        {genre.name}, &nbsp;
+                      </span>
                     ))}
                   </span>
 
@@ -97,29 +77,51 @@ function MoviePage() {
                       Like
                     </button> */}
 
-                    <IconButton onClick={() => handleLike(singleMovie)}>
-                      {likes.includes(singleMovie.id) ? (
-                        <FavoriteIcon />
-                      ) : (
-                        <FavoriteBorderIcon />
-                      )}
-                      {/* {like.includes(singleMovie) ? (
-                        <FavoriteIcon />
-                      ) : (
-                        <FavoriteBorderIcon />
-                      )} */}
-                    </IconButton>
-                  </div>
-                </div>
-              </section>
-              <section>
-                <p>About the movie</p>
-                <p>{singleMovie.overview}</p>
+                    {/* control={<Checkbox icon={<FavoriteBorder />} 
+                  checkedIcon={<Favorite />} */}
 
-                <div>
-                  <p>{singleMovie.release_date}</p>
-                  {/* <p>{singleMovie.spoken_languages}</p> */}
-                  <p>{singleMovie.runtime}</p>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          className='fav-icon'
+                          id={themeMode}
+                          onClick={() => handleLike(singleMovie)}
+                          // style={{ color: isLike ? "#e8eaed" : "#000000d7" }}
+                          icon={<FavoriteBorder />}
+                          checkedIcon={<Favorite />}
+                          name='checkedH'
+                        />
+                      }
+                      // label='Instagram Like Button'
+                    />
+                  </div>
+
+                  {/* movie info */}
+                  <div>
+                    <p className='about-movie'>About the movie</p>
+                    <p className='movie-overview'>{singleMovie.overview}</p>
+
+                    <div className='single-movie-info'>
+                      <p className='movie-release'>
+                        <span className='movie-bold-text'>
+                          Date of release:
+                        </span>{" "}
+                        {singleMovie.release_date}
+                      </p>
+                      {/* <p>{singleMovie.spoken_languages}</p> */}
+                      {singleMovie.runtime === 0 ? (
+                        ""
+                      ) : (
+                        <p className='movie-duration'>
+                          {" "}
+                          <span className='movie-bold-text'>
+                            Duration:
+                          </span>{" "}
+                          {singleMovie.runtime} min
+                        </p>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </section>
             </div>

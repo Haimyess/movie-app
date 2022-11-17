@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import MovieCard from "./MovieCard";
 
-function MoviesList({ movie, filteredMovies, loading }) {
+function MoviesList({ filteredMovies, loading }) {
   return (
     <section className='movies'>
       {loading ? (

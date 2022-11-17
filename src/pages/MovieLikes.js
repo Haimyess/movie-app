@@ -5,6 +5,9 @@ import MovieCard from "../components/MovieCard";
 
 import { LikeContext } from "../contexts/LikeContext";
 
+// styles
+import "../styles/movieslikes.css";
+
 function MovieLikes() {
   const { likes } = useContext(LikeContext);
   console.log(likes);
@@ -16,7 +19,7 @@ function MovieLikes() {
           <p>No likes yet</p>
         </div>
       ) : (
-        <section>
+        <section className='likes-wrapper'>
           <h1>Likes</h1>
 
           <div
