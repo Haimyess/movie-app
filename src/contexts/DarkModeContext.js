@@ -5,14 +5,10 @@ import React, { createContext, useState, useEffect } from "react";
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const fromLocalTheme = JSON.parse(
-    localStorage.getItem("theme") || "darkMode"
-  );
-  const [themeMode, setThemeMode] = useState(fromLocalTheme);
-  const fromLocalSwitch = JSON.parse(
-    localStorage.getItem("themeSwitch") || "false"
-  );
-  const [themeChecked, setThemeChecked] = useState(fromLocalSwitch);
+  const fromLocalTheme = JSON.parse(localStorage.getItem("theme"));
+  const [themeMode, setThemeMode] = useState(fromLocalTheme || "lightMode");
+  const fromLocalSwitch = JSON.parse(localStorage.getItem("themeSwitch"));
+  const [themeChecked, setThemeChecked] = useState(fromLocalSwitch || false);
 
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(themeMode));

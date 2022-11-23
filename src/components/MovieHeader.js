@@ -23,8 +23,10 @@ function MovieHeader() {
   const { themeMode, setThemeMode, setThemeChecked, themeChecked } =
     useContext(ThemeContext);
 
+  console.log(themeChecked);
+
   const handleTheme = () => {
-    setThemeMode((curr) => (curr === "darkMode" ? "lightMode" : "darkMode"));
+    setThemeMode((curr) => (curr === "lightMode" ? "darkMode" : "lightMode"));
     setThemeChecked((prev) => !prev);
   };
 
